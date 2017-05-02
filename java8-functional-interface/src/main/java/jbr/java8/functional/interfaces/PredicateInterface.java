@@ -35,12 +35,26 @@ public class PredicateInterface {
   public static Predicate<Person> getCategory(PersonCategory category) {
     Map<PersonCategory, Predicate<Person>> categories = new HashMap<PersonCategory, Predicate<Person>>();
 
+    // Simple Predicates
     Predicate<Person> children = p -> p.getAge() < 12;
     Predicate<Person> teenage = p -> p.getAge() > 12 && p.getAge() < 25;
     Predicate<Person> older = p -> p.getAge() > 25;
 
+    // Complex Predicates
+    Predicate<Person> maleChildren = children.and(p -> p.getGender() == Gender.MALE);
+    Predicate<Person> femaleChildren = maleChildren.negate();
+    Predicate<Person> maleChildrenBangalore = children.and(p -> p.getGender() == Gender.MALE)
+        .or(p -> p.getAddress()
+            .equalsIgnoreCase("Bangalore"));
+    Predicate<Person> chennaiTeens = teenage.or(p -> p.getAddress()
+        .equalsIgnoreCase("Chennai"));
+
     categories.put(PersonCategory.CHILDREN, children);
+    categories.put(PersonCategory.CHILDREN, maleChildren);
+    categories.put(PersonCategory.CHILDREN, femaleChildren);
+    categories.put(PersonCategory.CHILDREN, maleChildrenBangalore);
     categories.put(PersonCategory.TEEN, teenage);
+    categories.put(PersonCategory.TEEN, chennaiTeens);
     categories.put(PersonCategory.OLD, older);
 
     return categories.get(category);
