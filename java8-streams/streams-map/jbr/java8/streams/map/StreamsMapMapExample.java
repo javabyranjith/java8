@@ -23,20 +23,33 @@ public class StreamsMapMapExample {
       System.out.println("Key: " + map.getKey() + ", Value: " + map.getValue());
     }
 
-    System.out.println("\n===Print Keys");
+    System.out.println("\n===Print Map Keys");
     input.entrySet()
         .stream()
         .map(p -> p.getKey())
         .forEach(System.out::println);
 
-    System.out.println("\n===Print Values");
+    System.out.println("\n===Print Map Values");
     input.entrySet()
         .stream()
         .map(p -> p.getValue())
         .forEach(System.out::println);
 
-    System.out.println("\n===Sort by Key");
-    // Sort by key
+    System.out.println("\n===Print Inner Map Keys");
+    input.entrySet()
+        .stream()
+        .filter(v -> v.getKey()
+            .equals("G"))
+        // .flatMap(a -> a.) TODO
+        .forEach(System.out::println);
 
+    System.out.println("\n===Print Inner Map Values");
+    input.entrySet()
+        .stream()
+        .filter(v -> v.getKey()
+            .equals("G"))
+        .flatMap(a -> ((Map<String, String>) a.getValue()).values()
+            .stream())
+        .forEach(System.out::println);
   }
 }

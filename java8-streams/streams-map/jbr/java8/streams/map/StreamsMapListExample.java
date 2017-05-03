@@ -12,14 +12,21 @@ public class StreamsMapListExample {
     list.stream()
         .forEach(System.out::println);
 
-    System.out.println("\n===Sorted Array Values");
+    System.out.println("\n===Sorted Array Values - Uppercase");
     list.stream()
         .sorted()
+        .map(String::toUpperCase)
         .forEach(System.out::println);
 
     System.out.println("\nFilter - ends with 2");
     list.stream()
         .filter(p -> p.endsWith("2"))
+        .forEach(System.out::println);
+
+    System.out.println("\nFilter - replace 2 to 3 of what ends with 2");
+    list.stream()
+        .filter(p -> p.endsWith("2"))
+        .map(p -> p.endsWith("2") ? p.replace("2", "3") : p)
         .forEach(System.out::println);
   }
 }
