@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry kind="src" path="streams-map"/>
-	<classpathentry kind="src" path="streams-filter"/>
-	<classpathentry kind="src" path="streams-reduce"/>
-	<classpathentry kind="src" path="streams-match"/>
-	<classpathentry kind="src" path="streams-common"/>
-	<classpathentry kind="src" path="streams-basics"/>
+	<classpathentry kind="src" path="map"/>
+	<classpathentry kind="src" path="filter"/>
+	<classpathentry kind="src" path="reduce"/>
+	<classpathentry kind="src" path="match"/>
+	<classpathentry kind="src" path="common"/>
+	<classpathentry kind="src" path="basics"/>
+	<classpathentry kind="src" path="collectors"/>
 	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/jdk1.8.0_91">
 		<attributes>
 			<attribute name="maven.pomderived" value="true"/>
