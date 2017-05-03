@@ -1,4 +1,4 @@
-package jbr.streams.map;
+package jbr.java8.streams.map;
 
 import java.util.HashMap;
 import java.util.Map;
