@@ -4,9 +4,9 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.OptionalDouble;
 
-import jbr.java8.model.Gender1;
-import jbr.java8.model.Person1;
-import jbr.java8.model.PersonCategory1;
+import jbr.java8.model.Gender;
+import jbr.java8.model.Person;
+import jbr.java8.model.PersonCategory;
 
 /**
  * Examples of Stream Functions (sum, average, et.,)
@@ -18,21 +18,21 @@ import jbr.java8.model.PersonCategory1;
 public class StreamFunctions {
 
   public static void main(String[] args) {
-    List<Person1> persons = Arrays
-        .asList(new Person1[] { new Person1("Sekar", "Chinnappan", Gender1.MALE, "Hyderabad", 55, 88000),
-            new Person1("Ranjith", "Sekar", Gender1.MALE, "Chennai", 23, 96000),
-            new Person1("Kabilan", "Ranjith", Gender1.MALE, "Bangalore", 3, 86000),
-            new Person1("Nivedha", "Ranjith", Gender1.FEMALE, "Delhi", 1, 97000) });
+    List<Person> persons = Arrays
+        .asList(new Person[] { new Person("Sekar", "Chinnappan", Gender.MALE, "Hyderabad", 55, 88000),
+            new Person("Ranjith", "Sekar", Gender.MALE, "Chennai", 23, 96000),
+            new Person("Kabilan", "Ranjith", Gender.MALE, "Bangalore", 3, 86000),
+            new Person("Nivedha", "Ranjith", Gender.FEMALE, "Delhi", 1, 97000) });
     // sum
     int ageSum = persons.stream()
-        .filter(PredicateInterface.getCategory(PersonCategory1.CHILDREN))
+        .filter(PredicateInterface.getCategory(PersonCategory.CHILDREN))
         .mapToInt(p -> p.getAge())
         .sum();
     System.out.println("Age Sum: " + ageSum);
 
     // average
     OptionalDouble ageAverage = persons.stream()
-        .filter(PredicateInterface.getCategory(PersonCategory1.CHILDREN))
+        .filter(PredicateInterface.getCategory(PersonCategory.CHILDREN))
         .mapToDouble(p -> p.getAge())
         .average();
     System.out.println("Age Average: " + ageAverage.getAsDouble());

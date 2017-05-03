@@ -6,9 +6,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.function.Predicate;
 
-import jbr.java8.model.Gender1;
-import jbr.java8.model.Person1;
-import jbr.java8.model.PersonCategory1;
+import jbr.java8.model.Gender;
+import jbr.java8.model.Person;
+import jbr.java8.model.PersonCategory;
 
 /**
  * Examples of Predicate Interface. Predicate Interface will be used when we need to represent a boolean expression that
@@ -21,27 +21,27 @@ import jbr.java8.model.PersonCategory1;
 public class PredicateInterface {
 
   public static void main(String[] args) {
-    List<Person1> persons = Arrays
-        .asList(new Person1[] { new Person1("Sekar", "Chinnappan", Gender1.MALE, "Hydrabad", 55, 88000),
-            new Person1("Ranjith", "Sekar", Gender1.MALE, "Chennai", 23, 96000),
-            new Person1("Kabilan", "Ranjith", Gender1.MALE, "Bangalore", 3, 86000),
-            new Person1("Nivedha", "Ranjith", Gender1.FEMALE, "Delhi", 1, 97000) });
+    List<Person> persons = Arrays
+        .asList(new Person[] { new Person("Sekar", "Chinnappan", Gender.MALE, "Hydrabad", 55, 88000),
+            new Person("Ranjith", "Sekar", Gender.MALE, "Chennai", 23, 96000),
+            new Person("Kabilan", "Ranjith", Gender.MALE, "Bangalore", 3, 86000),
+            new Person("Nivedha", "Ranjith", Gender.FEMALE, "Delhi", 1, 97000) });
 
     persons.stream()
-        .filter(getCategory(PersonCategory1.OLD))
-        .forEach(Person1::firstNameFirst);
+        .filter(getCategory(PersonCategory.OLD))
+        .forEach(Person::firstNameFirst);
   }
 
-  public static Predicate<Person1> getCategory(PersonCategory1 category) {
-    Map<PersonCategory1, Predicate<Person1>> categories = new HashMap<PersonCategory1, Predicate<Person1>>();
+  public static Predicate<Person> getCategory(PersonCategory category) {
+    Map<PersonCategory, Predicate<Person>> categories = new HashMap<PersonCategory, Predicate<Person>>();
 
-    Predicate<Person1> children = p -> p.getAge() < 12;
-    Predicate<Person1> teenage = p -> p.getAge() > 12 && p.getAge() < 25;
-    Predicate<Person1> older = p -> p.getAge() > 25;
+    Predicate<Person> children = p -> p.getAge() < 12;
+    Predicate<Person> teenage = p -> p.getAge() > 12 && p.getAge() < 25;
+    Predicate<Person> older = p -> p.getAge() > 25;
 
-    categories.put(PersonCategory1.CHILDREN, children);
-    categories.put(PersonCategory1.TEEN, teenage);
-    categories.put(PersonCategory1.OLD, older);
+    categories.put(PersonCategory.CHILDREN, children);
+    categories.put(PersonCategory.TEEN, teenage);
+    categories.put(PersonCategory.OLD, older);
 
     return categories.get(category);
   }

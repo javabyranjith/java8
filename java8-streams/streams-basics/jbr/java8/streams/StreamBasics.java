@@ -5,8 +5,8 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-import jbr.java8.model.Gender1;
-import jbr.java8.model.Person1;
+import jbr.java8.model.Gender;
+import jbr.java8.model.Person;
 
 /**
  * Java 8 Stream basics.
@@ -31,11 +31,11 @@ public class StreamBasics {
     chars.stream()
         .forEachOrdered(System.out::println);
 
-    List<Person1> persons = Arrays
-        .asList(new Person1[] { new Person1("Sekar", "Chinnappan", Gender1.MALE, "Hydrabad", 55, 88000),
-            new Person1("Ranjith", "Sekar", Gender1.MALE, "Chennai", 23, 96000),
-            new Person1("Kabilan", "Ranjith", Gender1.MALE, "Bangalore", 3, 86000),
-            new Person1("Nivedha", "Ranjith", Gender1.FEMALE, "Delhi", 1, 97000) });
+    List<Person> persons = Arrays
+        .asList(new Person[] { new Person("Sekar", "Chinnappan", Gender.MALE, "Hydrabad", 55, 88000),
+            new Person("Ranjith", "Sekar", Gender.MALE, "Chennai", 23, 96000),
+            new Person("Kabilan", "Ranjith", Gender.MALE, "Bangalore", 3, 86000),
+            new Person("Nivedha", "Ranjith", Gender.FEMALE, "Delhi", 1, 97000) });
 
     System.out.println("\nPersons are in Chennai!!");
     persons.stream()
