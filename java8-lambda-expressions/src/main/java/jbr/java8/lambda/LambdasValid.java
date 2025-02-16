@@ -2,12 +2,7 @@ package jbr.java8.lambda;
 
 import java.util.Comparator;
 import java.util.List;
-import java.util.function.BiFunction;
-import java.util.function.Consumer;
-import java.util.function.Function;
-import java.util.function.Predicate;
-import java.util.function.Supplier;
-import java.util.function.ToIntBiFunction;
+import java.util.function.*;
 
 import jbr.java8.model.Gender;
 import jbr.java8.model.Person;
@@ -45,14 +40,14 @@ public class LambdasValid {
         .compareTo(p2.getAge());
 
  // Two Parameter with body
-    (Integer a, Integer b) ->
-      {
-        System.out.println("Sum is: ");
-        System.out.println(a + b);
-      };
-      
+    BiConsumer<Integer, Integer> integerIntegerBiConsumer = (Integer a, Integer b) ->
+    {
+      System.out.println("Sum is: ");
+      System.out.println(a + b);
+    };
+
     // pass lambda expression as a parameter to a function
-    exectue(()->System.out.println("Hello"));
+//    exectue(()->System.out.println("Hello"));
 
   }
 }

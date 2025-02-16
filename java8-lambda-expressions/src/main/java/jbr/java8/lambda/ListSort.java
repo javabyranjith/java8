@@ -15,7 +15,7 @@ import java.util.List;
 public class ListSort {
 
   public static void main(String[] args) {
-    /** java 7 sorting **/
+    /* java 7 sorting **/
     List<String> caps = Arrays.asList(new String[] { "C", "B", "E", "D", "A" });
     System.out.println("Before Sorting: " + caps);
     Collections.sort(caps, new Comparator<String>() {
